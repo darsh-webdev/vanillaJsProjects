@@ -40,19 +40,17 @@ function populateUI() {
         seat.classList.add("selected");
       }
     });
-    count.innerText = selectedSeats.length;
   }
 
   const selectedMovieIndex = localStorage.getItem("selectedMovieIndex");
-  const selectedMoviePrice = localStorage.getItem("selectedMoviePrice");
 
-  if (selectedMovieIndex !== null && selectedMovieIndex > -1) {
+  if (selectedMovieIndex !== null) {
     movieSelect.selectedIndex = selectedMovieIndex;
   }
 
-  if (selectedMoviePrice !== null && selectedMoviePrice > 0) {
+  const selectedMoviePrice = localStorage.getItem("selectedMoviePrice");
+  if (selectedMoviePrice !== null) {
     ticketPrice = parseInt(selectedMoviePrice);
-    total.innerText = selectedSeats.length * ticketPrice;
   }
 }
 
@@ -75,3 +73,6 @@ movieSelect.addEventListener("change", (e) => {
   setMovieData(e.target.selectedIndex, e.target.value);
   updateSelectedCount();
 });
+
+// Initial seat count and ticket total
+updateSelectedCount();
