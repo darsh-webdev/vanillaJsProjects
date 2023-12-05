@@ -79,7 +79,6 @@ function setProgress(e) {
   const duration = audio.duration;
 
   audio.currentTime = (clickX / width) * duration;
-  console.log(audio.currentTime);
 }
 
 /*------- Event Listeners --------- */
